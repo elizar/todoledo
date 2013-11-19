@@ -32,8 +32,11 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/tasks', function(req, res)  {
-  res.writeHead(200, {'content-type': 'text/html'});
-  res.end('Task section');
+  res.writeHead(200, {'content-type': 'application/json'});
+  var tasks = {};
+  tasks.status = 200;
+  tasks.data = [{title:'get some milk'}, {title:'eat some food'}];
+  res.end(JSON.stringify(tasks));
 });
 app.get('/users', function(req, res)  {
   res.writeHead(200, {'content-type': 'application/json'});
