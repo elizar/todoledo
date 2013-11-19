@@ -31,10 +31,16 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/tasks', function(req, res)  {
   res.writeHead(200, {'content-type': 'text/html'});
   res.end('Task section');
+});
+app.get('/users', function(req, res)  {
+  res.writeHead(200, {'content-type': 'application/json'});
+  var users = {};
+  users.status = 200;
+  users.data = [{name:'tibur'}, {name:'timoy'}];
+  res.end(JSON.stringify(users));
 });
 
 http.createServer(app).listen(app.get('port'), function(){
