@@ -45,6 +45,13 @@ app.get('/users', function(req, res)  {
   users.data = [{name:'tibur'}, {name:'timoy'}];
   res.end(JSON.stringify(users));
 });
+app.get('/items', function(req, res)  {
+  res.writeHead(200, {'content-type': 'application/json'});
+  var items = {};
+  items.status = 200;
+  items.data = [{type:'kitchen ware', name:'knife', id:1}, {type:'kitchen ware', name:'spoon', id:2}];
+  res.end(JSON.stringify(items));
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
