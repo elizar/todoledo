@@ -32,8 +32,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/tasks', function(req, res)  {
-  res.writeHead(200, {'content-type': 'text/html'});
-  res.end('Task section');
+  res.statusCode = 200;
+  res.end('Conflict MotherFockkerr!');
 });
 app.get('/users', function(req, res)  {
   res.writeHead(200, {'content-type': 'application/json'});
