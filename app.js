@@ -32,7 +32,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/tasks', function(req, res, next)  {
+app.get('/tasks', function(req, res)  {
   res.writeHead(200, {'content-type': 'text/html'});
   res.end('Task section');
 });
